@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101211">
+  <meta name="description" content="Nexbook noutbuklar do‘koni. O‘yin, ish, o‘qish va ijod uchun noutbuklarning xususiyatlari va narxlarini ko‘ring.">
+  <title>Nexbook — Noutbuklar do‘koni</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/hero.webp">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>.intro-splash{display:none!important}body.intro-animating .site-header,body.intro-animating .hero{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="config.js" defer></script>
+  <script src="store.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="intro-animating">
+  <div class="intro-splash" id="intro-splash" aria-hidden="true">
+    <div class="intro-box">
+      <div class="intro-brand">
+        <img id="intro-logo" src="assets/mark.svg" alt="" width="42" height="38">
+        <span id="intro-name">NEXBOOK</span>
+      </div>
+      <div class="intro-bar"><i></i></div>
+      <span class="intro-sub" id="intro-sub">Yuklanmoqda…</span>
+    </div>
+  </div>
+  <a class="skip" href="#catalog">Katalogga o‘tish</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#home" aria-label="Bosh sahifa">
+        <img id="brand-logo" src="assets/mark.svg" alt="" width="34" height="31">
+        <span id="brand-name">NEXBOOK</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Asosiy menyu">
+        <a href="#home" class="nav-active" data-nav="home">Bosh sahifa</a>
+        <a href="#catalog" data-nav="catalog">Katalog</a>
+        <button type="button" data-action="brands">Brendlar</button>
+        <button type="button" data-action="deals" data-nav="deals">Chegirmalar</button>
+        <a href="#contact" data-nav="contact">Aloqa</a>
+      </nav>
+      <div class="header-tools">
+        <button type="button" class="round-tool" data-action="search" aria-label="Qidirish (Ctrl+K)" title="Qidirish (Ctrl+K)"><i data-icon="search"></i></button>
+        <button type="button" class="round-tool fav-tool" data-action="favorites" aria-label="Sevimlilar" title="Sevimlilar"><i data-icon="heart"></i><b id="fav-dot" hidden></b></button>
+        <button type="button" class="round-tool orders-tool" data-action="orders" aria-label="Buyurtmalarim" title="Buyurtmalarim"><i data-icon="receipt"></i><b id="orders-dot" hidden></b></button>
+        <span class="tool-divider"></span>
+        <button type="button" class="cart-tool" data-action="cart" aria-label="Savatcha"><i data-icon="bag"></i><span>Savatcha</span><b id="cart-count">0</b></button>
+        <button type="button" class="round-tool mobile-menu" data-action="menu" aria-label="Menyuni ochish"><i data-icon="menu"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+    <section class="hero" aria-label="Asosiy kolleksiya" aria-roledescription="karusel">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-art blend-lighten"><img id="hero-image" src="assets/hero.webp" alt="Yashil nurli ekranga ega gaming noutbuk" fetchpriority="high"></div>
+      <div class="hero-content" id="hero-content">
+        <span class="hero-label"><i class="tiny-dot"></i><span id="hero-label">YANGI KOLLEKSIYA</span></span>
+        <h1 id="hero-title">Yangi avlod<br><em>noutbuklari.</em></h1>
+        <p id="hero-copy">O‘yin, ish va ijod uchun kuchli noutbuklar.<br>O‘zingizga mos modelni toping.</p>
+        <button type="button" class="primary hero-cta" data-action="hero-catalog"><i data-icon="grid"></i><span id="hero-cta-text">Katalogni ko‘rish</span></button>
+      </div>
+      <div class="slider-pos">
+        <span id="slide-number">01</span>
+        <div id="slide-tabs" aria-label="Slaydni tanlash"></div>
+        <span class="slide-total" id="slide-total">03</span>
+      </div>
+      <div class="slider-nav">
+        <button type="button" data-action="prev-slide" aria-label="Oldingi slayd"><i data-icon="left"></i></button>
+        <button type="button" data-action="next-slide" aria-label="Keyingi slayd"><i data-icon="right"></i></button>
+      </div>
+    </section>
+
+    <section class="benefits reveal" id="benefits" aria-label="Do‘kon afzalliklari"></section>
+
+    <section class="catalog reveal" id="catalog" aria-labelledby="catalog-heading">
+      <div class="section-line">
+        <div class="catalog-heading">
+          <span class="section-mark" aria-hidden="true"></span>
+          <h2 id="catalog-heading">Noutbuklar katalogi</h2>
+          <span class="model-count" id="model-count" aria-live="polite"></span>
+        </div>
+        <div class="catalog-actions">
+          <button type="button" class="filter-btn" data-action="filters">
+            <i data-icon="sliders"></i>
+            <span>Filtrlar</span>
+            <b class="filter-pill" id="filter-count" hidden>0</b>
+          </button>
+        </div>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="category-tabs" aria-label="Mahsulot toifalari" id="category-tabs"></div>
+        <div class="sort-wrap">
+          <i data-icon="sort"></i>
+          <select id="sort" aria-label="Mahsulotlarni saralash">
+            <option value="recommended">Tavsiya etilgan</option>
+            <option value="low">Avval arzonlari</option>
+            <option value="high">Avval qimmatlari</option>
+            <option value="name">Nomi bo‘yicha</option>
+          </select>
+          <i data-icon="down"></i>
+        </div>
+      </div>
+
+      <div id="active-filters" class="active-filters" aria-live="polite"></div>
+      <div class="product-grid" id="product-grid"></div>
+      <noscript>Katalog va savatchadan foydalanish uchun brauzerda JavaScript’ni yoqing.</noscript>
+    </section>
+
+    <section class="contact-band reveal" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-copy">
+        <span class="hero-label"><i class="tiny-dot"></i><span>ALOQA VA MASLAHAT</span></span>
+        <h2 id="contact-heading">Tanlashda ikkilanyapsizmi?</h2>
+        <p id="contact-tagline" class="small-copy">Mutaxassisimiz vazifangiz va byudjetingizga qarab eng optimal modelni bepul tavsiya qiladi.</p>
+        <div class="contact-meta" id="contact-meta"></div>
+      </div>
+      <div class="contact-actions" id="contact-actions"></div>
+    </section>
+  </main>
+
+  <footer class="reveal">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#home"><img id="footer-logo" src="assets/mark.svg" width="27" height="25" alt=""><span id="footer-brand-name">NEXBOOK</span></a>
+        <p class="small-copy" id="footer-tagline"></p>
+      </div>
+      <div class="footer-links">
+        <button type="button" data-action="catalog">Katalog</button>
+        <button type="button" data-action="deals">Chegirmalar</button>
+        <button type="button" data-action="favorites">Sevimlilar</button>
+        <button type="button" data-action="orders">Buyurtmalarim</button>
+        <button type="button" data-action="consult">Maslahat olish</button>
+        <button type="button" data-action="admin" id="footer-admin-btn">Admin panel</button>
+      </div>
+      <div class="footer-meta">
+        <span id="footer-note">Namunaviy katalog va narxlar</span>
+        <span id="footer-copyright">© Nexbook 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="compare-bar" id="compare-bar" hidden aria-live="polite">
+    <div class="compare-bar-info">
+      <i data-icon="compare"></i>
+      <span id="compare-bar-text">Taqqoslash: 0 ta model</span>
+    </div>
+    <div class="compare-bar-actions">
+      <button type="button" class="secondary small-btn" data-action="clear-compare">Tozalash</button>
+      <button type="button" class="primary small-btn" data-action="compare">Solishtirish</button>
+    </div>
+  </div>
+
+  <button type="button" class="scroll-top" id="scroll-top" data-action="scroll-top" aria-label="Tepaga qaytish" hidden>
+    <i data-icon="up"></i>
+  </button>
+
+  <dialog id="panel" aria-labelledby="panel-title">
+    <div id="panel-body"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
