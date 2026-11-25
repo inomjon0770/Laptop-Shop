@@ -1,0 +1,8 @@
+.openai/
+nexbook/.openai/
+nexbook-contact.jpg
+.DS_Store
+Thumbs.db
+*.log
+.env
+node_modules/
